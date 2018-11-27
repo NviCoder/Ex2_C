@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 
+//Runs on this compiler online: https://www.onlinegdb.com/online_c_compiler
 
 
 #define N 3
