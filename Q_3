@@ -1,0 +1,65 @@
+#include <stdio.h>
+
+//https://www.programiz.com/c-programming/examples/matrix-multiplication-function.
+
+void multiplyMatrices(int firstMatrix[][10], int secondMatrix[][10], int multResult[][10], int rowFirst, int columnFirst, int rowSecond, int columnSecond);
+
+int main()
+{
+// Initializing elements for firstMatrix.
+   
+    int firstMatrix[3][4] = {  
+        {0, 1, 2, 3} ,   /*  initializers for row indexed by 0 */
+        {4, 5, 6, 7} ,   /*  initializers for row indexed by 1 */
+        {8, 9, 10, 11}   /*  initializers for row indexed by 2 */
+    };
+
+// Initializing elements for secondMatrix.
+    int secondMatrix[4][3] ={
+        {3,5,2,} , /*  initializers for row indexed by 0 */
+        {3,5,2,} , /*  initializers for row indexed by 1 */
+        {3,5,2,} , /*  initializers for row indexed by 2 */
+        {3,5,2,} , /*  initializers for row indexed by 3 */
+    }
+    
+        // Function to multiply two matrices.
+        multiplyMatrices(firstMatrix, secondMatrix);/// Are we grt here the numbers of rows and colums of the matrixs?
+        
+	return 0;
+}
+
+
+
+void multiplyMatrices(int firstMatrix[][], int secondMatrix[][], int mult[][], int rowFirst, int columnFirst, int rowSecond, int columnSecond)
+{
+	int i, j, k;
+
+
+
+	// Multiplying matrix firstMatrix and secondMatrix and storing in array mult.
+	for(i = 0; i < rowFirst; ++i)
+	{
+		for(j = 0; j < columnSecond; ++j)
+		{
+			for(k=0; k<columnFirst; ++k)
+			{
+				mult[i][j] += firstMatrix[i][k] * secondMatrix[k][j];
+			}
+		}
+	}
+}
+
+void display(int mult[][10], int rowFirst, int columnSecond)
+{
+	int i, j;
+	printf("\nOutput Matrix:\n");
+	for(i = 0; i < rowFirst; ++i)
+	{
+		for(j = 0; j < columnSecond; ++j)
+		{
+			printf("%d  ", mult[i][j]);
+			if(j == columnSecond - 1)
+				printf("\n\n");
+		}
+	}
+}
