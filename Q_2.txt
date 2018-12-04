@@ -2,25 +2,20 @@
 #include <stdio.h>
 #include <string.h>
 
-char *capitalLetters(char* str, int len){
-    char *answer = malloc(len);
+void *capitalLetters(char* str){
     int index = 0;
     int i=0;
     while (str[i] != '\0'){
         if (str[i] >= 'A' && str[i] <= 'Z'){
-            answer[index] = str[i];
-            index++;
+            printf("%c",str[i]);
         }
         i++;
     }
-    answer[index] = '\0';
-    return answer;
-    free(answer);
+    printf("\n");
 }
 
 int main()
 {
-    char cap[20] = "#HeLLo7";
-    printf("%s", capitalLetters(cap, 20));
-    
+    char *cap = "#HeLLo7";
+    capitalLetters(cap);
 }
