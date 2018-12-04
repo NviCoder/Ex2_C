@@ -1,8 +1,6 @@
 #include <stdio.h>
-
 #include <stdlib.h>
 
-//https://www.programiz.com/c-programming/examples/matrix-multiplication-function.
 
 void multiplyMatrices(int rowsFirst, int M1, int *firstMatrix, int rowsSecond, int M2, int *secondMatrix, int *mult)
 {
@@ -12,20 +10,17 @@ void multiplyMatrices(int rowsFirst, int M1, int *firstMatrix, int rowsSecond, i
 	}
 
 	int i, j, k;
-	// Multiplying matrix firstMatrix and secondMatrix
-	for(i = 0; i < rowsFirst; i++)
+	// Multiplying  firstMatrix and secondMatrix
+ for(i = 0; i < rowsFirst; i++) 
 	{
 		for(j = 0; j < M2; j++)
 		{
-		    int firstIndex,secondIndex;
 			for(k=0; k < M1; k++)
 			{
-				int firstIndex = *firstMatrix + (M1*i) + k;
-				int secondIndex = *secondMatrix + (M2*k) + j;
-				*(mult + j*M2 + i) += firstIndex * secondIndex;
+				int firstIndex = *(firstMatrix + (M1*i) + k);
+				int secondIndex = *(secondMatrix + (M2*k) + j);
+				*(mult + i*M2 + j) += firstIndex * secondIndex;
 			}
-			firstIndex=0;
-			secondIndex=0;
 		}
 	}
 }
