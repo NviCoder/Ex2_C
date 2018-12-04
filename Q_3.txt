@@ -17,14 +17,15 @@ void multiplyMatrices(int rowsFirst, int M1, int *firstMatrix, int rowsSecond, i
 	{
 		for(j = 0; j < M2; j++)
 		{
+		    int firstIndex,secondIndex;
 			for(k=0; k < M1; k++)
 			{
-				// *(mult + i*M2 + rowsFirst) += firstMatrix[i][k] * secondMatrix[k][j];
 				int firstIndex = *firstMatrix + (M1*i) + k;
 				int secondIndex = *secondMatrix + (M2*k) + j;
 				*(mult + j*M2 + i) += firstIndex * secondIndex;
-				// printf("%d\n", *(mult + j*M2 + i));
 			}
+			firstIndex=0;
+			secondIndex=0;
 		}
 	}
 }
