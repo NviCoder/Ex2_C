@@ -2,9 +2,9 @@
 #include <stdlib.h>
 
 
-void multiplyMatrices(int rowsFirst, int M1, int *firstMatrix, int rowsSecond, int M2, int *secondMatrix, int *mult)
+void multiplyMatrices(int rowsFirst, int M1, int *firstMatrix, int rowsSecond, int M2, int *secondMatrix, int rowsMult, int MMult, int *mult)
 {
-	if (M1 != rowsSecond){
+	if (M1 != rowsSecond || rowsFirst != rowsMult || M2 != MMult){
 	    printf("Invalid input");
 	    exit(1);
 	}
@@ -65,7 +65,7 @@ int main()
         for (int j=0; j<3; j++)
             answer[i][j]=0;
 
-    multiplyMatrices(3,4,&firstMatrix, 4,3, &secondMatrix, &answer);
+    multiplyMatrices(3,4,&firstMatrix, 4,3, &secondMatrix, 3,3, &answer);
     
     display(3,3,&answer);
 	return 0;
